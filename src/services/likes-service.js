@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const BASE_URL = "https://foundation-a4.herokuapp.com";
-const TUITS_API = "https://foundation-server-a1.herokuapp.com/tuits";
-const USERS_API = "https://foundation-server-a1.herokuapp.com/users";
+const TUITS_API = "https://foundation-a4.herokuapp.com/tuits";
+const USERS_API = "https://foundation-a4.herokuapp.com/users";
 
 const api = axios.create({
   withCredentials: true

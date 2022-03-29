@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const TUITS_API = "https://foundation-server-a1.herokuapp.com/tuits";
-const USERS_API = "https://foundation-server-a1.herokuapp.com/users";
+const TUITS_API = "https://foundation-a4.herokuapp.com/tuits";
+const USERS_API = "https://foundation-a4.herokuapp.com/users";
 
 // const TUITS_API = "http://localhost:4000/tuits";
 // const USERS_API = "http://localhost:4000/users";
