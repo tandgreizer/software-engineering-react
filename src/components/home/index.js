@@ -10,6 +10,7 @@ const Home = () => {
   const {uid} = useParams();
   const [tuits, setTuits] = useState([]);
   const [tuit, setTuit] = useState('');
+  const [profile, setProfile] = useState({});
   const userId = uid;
   const findTuits = () =>
       service.findAllTuits()
@@ -19,11 +20,15 @@ const Home = () => {
     findTuits()
     return () => {isMounted = false;}
   }, []);
-  const createTuit = () =>
-      service.createTuit('my', {tuit})
-          .then(findTuits)
+  const createTuit = () => {
+    if (profile != null){
+      service.createTuit(profile._id, {tuit})
+    .then(findTuits)}
 
-  const [profile, setProfile] = useState({});
+
+
+  }
+
   useEffect(async () => {
     try {
       const user = await secService.profile();
@@ -44,9 +49,9 @@ const Home = () => {
           <div className="p-2 w-100">
             <textarea
                 onChange={(e) => {
-                    console.log(["the val is ",e.target.value,"profID", profile._id])
+                    // console.log(["the val is ",e.target.value,"profID", profile._id])
 
-                  // setTuit(e.target.value)}
+                  setTuit(e.target.value)
                 }}
               placeholder="What's happening?"
               className="w-100 border-0"></textarea>
