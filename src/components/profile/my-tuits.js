@@ -9,8 +9,10 @@ const MyTuits = () => {
             .then(tuits => setTuits(tuits));
     useEffect(findMyTuits, []);
     return(
+        <div>Mine
         <Tuits tuits={tuits}
                refreshTuits={findMyTuits}/>
+        </div>
     );
 };
 
