@@ -23,7 +23,7 @@ const Home = () => {
   const createTuit = () => {
     const id = profile._id
     console.log(id)
-      service.createTuit(id, tuit)
+      service.createTuit({id}, {tuit})
     .then(findTuits)
     //   console.log([profile._id, tuit])
 
