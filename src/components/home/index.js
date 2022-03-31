@@ -20,17 +20,20 @@ const Home = () => {
     findTuits()
     return () => {isMounted = false;}
   }, []);
-  const createTuit = () => {
-    const userid = profile._id.toString()
-      service.createTuit(userid,tuit)
-    .then(findTuits)
-      // console.log([profile._id, num, tuit])
-
-
-
-
-
-  }
+  const createTuit = () =>
+      service.createTuit('my', {tuit})
+      .then(findTuits)
+  // const createTuit = () => {
+  //   const userid = profile._id.toString()
+  //     service.createTuit(userid,tuit)
+  //   .then(findTuits)
+  //     // console.log([profile._id, num, tuit])
+  //
+  //
+  //
+  //
+  //
+  // }
 
   useEffect(async () => {
     try {

@@ -22,7 +22,11 @@ export const findTuitByUser = (uid) =>
     api.get(`${USERS_API}/${uid}/tuits`)
     .then(response => response.data);
 
-export const createTuit = (uid,tuitMsg) => {
+export const createTuit = (uid, tuit) =>
+    api.post(`${USERS_API}/${uid}/tuits`, tuit)
+    .then(response => response.data);
+
+export const createTuitGeneral = (uid,tuitMsg) => {
   const tuit = {tuit: tuitMsg,
     postedBy: uid,
     postedOn: new Date().getDate()
