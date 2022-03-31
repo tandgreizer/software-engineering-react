@@ -21,9 +21,7 @@ const Home = () => {
     return () => {isMounted = false;}
   }, []);
   const createTuit = () => {
-    const id = profile._id
-    console.log(id)
-      service.createTuit({id}, {tuit})
+      service.createTuit(profile._id)
     .then(findTuits)
     //   console.log([profile._id, tuit])
 
