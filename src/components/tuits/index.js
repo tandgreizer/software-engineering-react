@@ -11,7 +11,10 @@ const Tuits = ({tuits = [], refreshTuits}) => {
     const deleteTuit = (tid) =>
         service.deleteTuit(tid)
             .then(refreshTuits);
-  console.log(tuits.length)
+    const dislikeTuit = (tuit) =>
+        likesService.userDislikesLikesTuit("me", tuit._id)
+        .then(refreshTuits)
+        .catch(e => alert(e))
     return (
         <div>
           <ul className="ttr-tuits list-group">
@@ -20,6 +23,7 @@ const Tuits = ({tuits = [], refreshTuits}) => {
                   <Tuit key={tuit._id}
                         deleteTuit={deleteTuit}
                         likeTuit={likeTuit}
+                        dislikeTuit={dislikeTuit}
                         tuit={tuit}/>)
             }
           </ul>
