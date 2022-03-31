@@ -1,6 +1,7 @@
 import React from "react";
 import Tuits from "../tuits";
 import * as service from "../../services/tuits-service";
+import * as secService from "../../services/security-service"
 import {useEffect, useState} from "react";
 import {useLocation, useParams} from "react-router-dom";
 
@@ -25,7 +26,7 @@ const Home = () => {
   const [profile, setProfile] = useState({});
   useEffect(async () => {
     try {
-      const user = await service.profile();
+      const user = await secService.profile();
       setProfile(user);
     } catch (e) {
       setProfile(null)
