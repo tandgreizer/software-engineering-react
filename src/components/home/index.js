@@ -22,8 +22,11 @@ const Home = () => {
   }, []);
   const createTuit = () => {
     if (profile != null){
-      service.createTuit(profile._id, tuit)
-    .then(findTuits)}
+    //   service.createTuit(profile._id, tuit)
+    // .then(findTuits)
+      console.log([profile._id, tuit])
+
+    }
 
 
 
