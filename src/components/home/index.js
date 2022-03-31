@@ -21,6 +21,16 @@ const Home = () => {
   const createTuit = () =>
       service.createTuit('my', {tuit})
           .then(findTuits)
+
+  const [profile, setProfile] = useState({});
+  useEffect(async () => {
+    try {
+      const user = await service.profile();
+      setProfile(user);
+    } catch (e) {
+      setProfile(null)
+    }
+  }, []);
   return(
     <div className="ttr-home">
       <div className="border border-bottom-0">
@@ -32,8 +42,11 @@ const Home = () => {
           </div>
           <div className="p-2 w-100">
             <textarea
-                onChange={(e) =>
-                    setTuit(e.target.value)}
+                onChange={(e) => {
+                    console.log(["the val is ",e.target.value,"profID", profile._id])
+
+                  // setTuit(e.target.value)}
+                }}
               placeholder="What's happening?"
               className="w-100 border-0"></textarea>
             <div className="row">
