@@ -21,11 +21,11 @@ const Home = () => {
     return () => {isMounted = false;}
   }, []);
   const createTuit = () => {
-
-      service.createTuit(profile._id, tuit)
-    .then(findTuits)
+    const id = profile._id
+    //   service.createTuit(profile._id, tuit)
+    // .then(findTuits)
     //   console.log([profile._id, tuit])
-
+    console.log(id)
 
 
 
