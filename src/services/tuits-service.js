@@ -23,14 +23,14 @@ export const findTuitByUser = (uid) =>
     .then(response => response.data);
 
 export const createTuit = (uid,tuitMsg) => {
-  const tuit = {tuit: tuitMsg,
-    postedBy: uid,
-    postedOn: new Date().getDate()
-
-  }
-
-  api.post(`${TUITS_API}`, tuit)
-  .then(response => response.data);
+  // const tuit = {tuit: tuitMsg,
+  //   postedBy: uid,
+  //   postedOn: new Date().getDate()
+  //
+  // }
+  //
+  // api.post(`${TUITS_API}`, tuit)
+  // .then(response => response.data);
 }
 
 export const updateTuit = (tid, tuit) =>
