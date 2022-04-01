@@ -28,7 +28,7 @@ const Tuit = ({tuit, deleteTuit, likeTuit, dislikeTuit, doesLike, doesDislike}) 
         }
         return old;
     }
-    console.log(doesLike(tuit._id))
+
   return(
     // <li onClick={() => navigate(`/tuit/${tuit._id}`)}
     <li className="p-2 ttr-tuit list-group-item d-flex rounded-0">
