@@ -33,8 +33,8 @@ const Tuits = ({tuits = [], refreshTuits}) => {
                         likeTuit={likeTuit}
                         dislikeTuit={dislikeTuit}
                         tuit={tuit}
-                        doesLike={doesUserLike}
-                        doesDislike={doesUserDisLike}
+                        // doesLike={doesUserLike}
+                        // doesDislike={doesUserDisLike}
                   />)
             }
           </ul>
