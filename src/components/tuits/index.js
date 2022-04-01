@@ -17,11 +17,11 @@ const Tuits = ({tuits = [], refreshTuits}) => {
         .catch(e => alert(e))
     const doesUserLike = (tid) =>
         likesService.doesUserLikeTuit("me", tid)
-        .then(refreshTuits)
+        .then()
         .catch(e => alert(e))
     const doesUserDisLike = (tid) =>
         likesService.doesUserDisLikeTuit("me", tid)
-        .then(refreshTuits)
+        .then()
         .catch(e => alert(e))
     return (
         <div>
