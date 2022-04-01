@@ -34,3 +34,11 @@ export const doesUserLikeTuit = (uid, tid) =>
 export const doesUserDisLikeTuit = (uid, tid) =>
     api.get(`${USERS_API}/${uid}/dislikes/${tid}`)
     .then(response => response.data);
+
+export const userUnlikes = (uid, tid) =>
+    api.delete(`${USERS_API}/${uid}/unlikes/${tid}`)
+    .then(response => response.data);
+
+export const userUnDislikes = (uid, tid) =>
+    api.delete(`${USERS_API}/${uid}/undislikes/${tid}`)
+    .then(response => response.data);

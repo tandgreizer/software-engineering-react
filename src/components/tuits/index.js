@@ -6,14 +6,18 @@ import * as service from "../../services/tuits-service";
 const Tuits = ({tuits = [], refreshTuits}) => {
     const likeTuit = (tuit) =>
         likesService.userLikesTuit("me", tuit._id)
+            .then(likesService.userUnDislikes("me",tuit._id)
             .then(refreshTuits)
+            .catch(e => alert(e)))
             .catch(e => alert(e))
     const deleteTuit = (tid) =>
         service.deleteTuit(tid)
             .then(refreshTuits);
     const dislikeTuit = (tuit) =>
         likesService.userDislikesLikesTuit("me", tuit._id)
+        .then(likesService.userUnlikes("me",tuit._id)
         .then(refreshTuits)
+        .catch(e => alert(e)))
         .catch(e => alert(e))
     const doesUserLike = (tid) =>
         likesService.doesUserLikeTuit("me", tid)
