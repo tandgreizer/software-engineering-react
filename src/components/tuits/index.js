@@ -15,10 +15,10 @@ const Tuits = ({tuits = [], refreshTuits}) => {
         likesService.userDislikesLikesTuit("me", tuit._id)
         .then(refreshTuits)
         .catch(e => alert(e))
-  const doesUserLike = (tid) =>
-      likesService.doesUserLikeTuit("me", tid).then().cache(e => alert(e))
-  const doesUserDisLike = (tid) =>
-      likesService.doesUserDisLikeTuit("me", tid).then().cache(e => alert(e))
+    const doesUserLike = (tid) =>
+        likesService.doesUserLikeTuit("me", tid).then(refreshTuits).cache(e => alert(e))
+    const doesUserDisLike = (tid) =>
+        likesService.doesUserDisLikeTuit("me", tid).then(refreshTuits).cache(e => alert(e))
     return (
         <div>
           <ul className="ttr-tuits list-group">
