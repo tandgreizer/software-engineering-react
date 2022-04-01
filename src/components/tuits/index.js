@@ -5,25 +5,14 @@ import * as likesService from "../../services/likes-service";
 import * as service from "../../services/tuits-service";
 const Tuits = ({tuits = [], refreshTuits}) => {
     const likeTuit = (tuit) => {
-      // likesService.userUnDislikes("me", tuit._id)
-      // .then(
+
           likesService.userLikesTuit("me", tuit._id)
           .then(refreshTuits)
           .catch(e => alert(e))
-      // )
-      // .catch(e => alert(e))
+
 
     }
-    const forceUnlike = (tuit) => {
-      // likesService.userUnlikes("me", tuit._id)
-      // .then(refreshTuits)
-      // .catch(e => alert(e))
-    }
-  const forceUnDislike = (tuit) => {
-    // likesService.userUnDislikes("me", tuit._id)
-    // .then(refreshTuits)
-    // .catch(e => alert(e))
-  }
+
     const deleteTuit = (tid) =>
         service.deleteTuit(tid)
             .then(refreshTuits);
@@ -50,8 +39,7 @@ const Tuits = ({tuits = [], refreshTuits}) => {
                         likeTuit={likeTuit}
                         dislikeTuit={dislikeTuit}
                         tuit={tuit}
-                        forceUnDislike={forceUnDislike}
-                        forceUnlike={forceUnlike}
+
                   />)
             }
           </ul>
