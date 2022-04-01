@@ -12,13 +12,20 @@ const Tuits = ({tuits = [], refreshTuits}) => {
       .then(refreshTuits)
       .catch(e => alert(e))
     }
+    const forceUnlike = (tuit) => {
+      likesService.userUnlikes("me", tuit._id)
+      .then(refreshTuits)
+      .catch(e => alert(e))
+    }
+  const forceUnDislike = (tuit) => {
+    likesService.userUnDislikes("me", tuit._id)
+    .then(refreshTuits)
+    .catch(e => alert(e))
+  }
     const deleteTuit = (tid) =>
         service.deleteTuit(tid)
             .then(refreshTuits);
     const dislikeTuit = (tuit) =>{
-      likesService.userUnlikes("me", tuit._id)
-      .then(refreshTuits)
-      .catch(e => alert(e))
       likesService.userDislikesTuit("me", tuit._id)
       .then(refreshTuits)
       .catch(e => alert(e))
@@ -41,8 +48,8 @@ const Tuits = ({tuits = [], refreshTuits}) => {
                         likeTuit={likeTuit}
                         dislikeTuit={dislikeTuit}
                         tuit={tuit}
-                        // doesLike={doesUserLike}
-                        // doesDislike={doesUserDisLike}
+                        forceUnDislike={forceUnDislike}
+                        forceUnlike={forceUnlike}
                   />)
             }
           </ul>
