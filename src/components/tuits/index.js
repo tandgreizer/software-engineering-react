@@ -4,21 +4,25 @@ import Tuit from "./tuit";
 import * as likesService from "../../services/likes-service";
 import * as service from "../../services/tuits-service";
 const Tuits = ({tuits = [], refreshTuits}) => {
-    const likeTuit = (tuit) =>
-        likesService.userLikesTuit("me", tuit._id)
-            .then(likesService.userUnDislikes("me",tuit._id)
-            .then(refreshTuits)
-            .catch(e => alert(e)))
-            .catch(e => alert(e))
+    const likeTuit = (tuit) => {
+      likesService.userUnDislikes("me", tuit._id)
+      .then()
+      .catch(e => alert(e))
+      likesService.userLikesTuit("me", tuit._id)
+      .then(refreshTuits)
+      .catch(e => alert(e))
+    }
     const deleteTuit = (tid) =>
         service.deleteTuit(tid)
             .then(refreshTuits);
-    const dislikeTuit = (tuit) =>
-        likesService.userDislikesLikesTuit("me", tuit._id)
-        .then(likesService.userUnlikes("me",tuit._id)
-        .then(refreshTuits)
-        .catch(e => alert(e)))
-        .catch(e => alert(e))
+    const dislikeTuit = (tuit) =>{
+      likesService.userUnlikes("me", tuit._id)
+      .then()
+      .catch(e => alert(e))
+      likesService.userDislikesTuit("me", tuit._id)
+      .then(refreshTuits)
+      .catch(e => alert(e))
+    }
     const doesUserLike = (tid) =>
         likesService.doesUserLikeTuit("me", tid)
         .then()
