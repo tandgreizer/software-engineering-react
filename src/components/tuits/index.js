@@ -4,16 +4,30 @@ import Tuit from "./tuit";
 import * as likesService from "../../services/likes-service";
 import * as service from "../../services/tuits-service";
 const Tuits = ({tuits = [], refreshTuits}) => {
-    const likeTuit = (tuit) =>
-        likesService.userLikesTuit("me", tuit._id)
-            .then(refreshTuits)
-            .catch(e => alert(e))
+    const likeTuit = (tuit) => {
+
+          likesService.userLikesTuit("me", tuit._id)
+          .then(refreshTuits)
+          .catch(e => alert(e))
+
+
+    }
+
     const deleteTuit = (tid) =>
         service.deleteTuit(tid)
             .then(refreshTuits);
-    const dislikeTuit = (tuit) =>
-        likesService.userDislikesLikesTuit("me", tuit._id)
-        .then(refreshTuits)
+    const dislikeTuit = (tuit) =>{
+      likesService.userDislikesTuit("me", tuit._id)
+      .then(refreshTuits)
+      .catch(e => alert(e))
+    }
+    const doesUserLike = (tid) =>
+        likesService.doesUserLikeTuit("me", tid)
+        .then()
+        .catch(e => alert(e))
+    const doesUserDisLike = (tid) =>
+        likesService.doesUserDisLikeTuit("me", tid)
+        .then()
         .catch(e => alert(e))
     return (
         <div>
@@ -24,7 +38,9 @@ const Tuits = ({tuits = [], refreshTuits}) => {
                         deleteTuit={deleteTuit}
                         likeTuit={likeTuit}
                         dislikeTuit={dislikeTuit}
-                        tuit={tuit}/>)
+                        tuit={tuit}
+
+                  />)
             }
           </ul>
         </div>
